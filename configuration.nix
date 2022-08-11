@@ -4,16 +4,15 @@
 
 { config, pkgs, ... }:
 
+let 
+  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./home-manager.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -23,7 +22,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable Plymouth
-    boot.plymouth = {
+  boot.plymouth = {
     enable = true;
     theme = "breeze";
   };
@@ -62,7 +61,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -104,22 +102,35 @@
       initialPassword = "123";
       group = "tim";
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    #   packages = with pkgs; [
-    #     firefox
-    #     thunderbird
-    #   ];
+      extraGroups = [ "wheel" "networkmanager" ];
     };
   };
+
+  # Enable proprietary software
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     firefox
     gnome.gnome-tweaks
+    libsForQt5.qtstyleplugin-kvantum
+    nodejs
+    discord
+    spotify
+    element-desktop
+    vscode.fhs
+    xclip
+    bitwarden
+    unstable.hyper
+    protonup
+    lutris
   ];
+
+  programs.steam.enable = true;
+  hardware.opengl.driSupport32Bit = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
