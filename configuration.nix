@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./home-manager.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -89,17 +90,26 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tim = {
-    isNormalUser = true;
-    uid = 1000;
-    description = "Tim Brüggemann";
-    home = "/home/tim";
-    initialPassword = "123";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     thunderbird
-  #   ];
+  users = {
+    groups.tim = {
+      name = "tim";
+      gid = 1000;
+      members = [ "tim" ];
+    };
+    users.tim = {
+      isNormalUser = true;
+      uid = 1000;
+      description = "Tim Brüggemann";
+      home = "/home/tim";
+      initialPassword = "123";
+      group = "tim";
+      shell = pkgs.zsh;
+      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    #   packages = with pkgs; [
+    #     firefox
+    #     thunderbird
+    #   ];
+    };
   };
 
   # List packages installed in system profile. To search, run:
