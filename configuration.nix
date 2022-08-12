@@ -132,6 +132,9 @@ in
   programs.steam.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
+  # Enable sensors
+  hardware.sensor.iio.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
