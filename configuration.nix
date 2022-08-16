@@ -112,22 +112,23 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    wget
+    bitwarden
+    discord
+    element-desktop
     firefox
     gnome.gnome-tweaks
     libsForQt5.qtstyleplugin-kvantum
-    nodejs
-    discord
-    spotify
-    element-desktop
-    vscode.fhs
-    xclip
-    bitwarden
-    unstable.hyper
-    protonup
     lutris
+    neovim
+    nextcloud-client
+    nodejs
+    protonup
+    spotify
     texlive.combined.scheme-full 
+    unstable.hyper
+    vscode.fhs
+    wget
+    xclip
     zathura
   ];
 
