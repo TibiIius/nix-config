@@ -116,9 +116,11 @@ in
     discord
     element-desktop
     firefox
+    gnome.dconf-editor
     gnome.gnome-tweaks
     libsForQt5.qtstyleplugin-kvantum
     lutris
+    nautilus-open-any-terminal 
     neovim
     nextcloud-client
     nodejs
