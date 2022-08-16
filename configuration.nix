@@ -127,6 +127,8 @@ in
     unstable.hyper
     protonup
     lutris
+    texlive.combined.scheme-full 
+    zathura
   ];
 
   programs.steam.enable = true;
