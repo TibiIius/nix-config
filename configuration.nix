@@ -48,19 +48,21 @@ in
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enables autologin
-  services.xserver.displayManager.autoLogin = {
-    enable = false;
-    user = "tim";
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "tim";
+      };
+      gdm = {
+        enable = true;
+        autoLogin.delay = 5;
+      };
+    };
+    desktopManager.gnome.enable = true;
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -112,10 +114,14 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    bat
     bitwarden
     discord
+    du-dust
     element-desktop
+    fd
     firefox
+    fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
     libsForQt5.qtstyleplugin-kvantum
@@ -124,7 +130,9 @@ in
     neovim
     nextcloud-client
     nodejs
+    obsidian
     protonup
+    ripgrep
     spotify
     texlive.combined.scheme-full 
     unstable.hyper
