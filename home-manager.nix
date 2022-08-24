@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
-
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -34,11 +32,11 @@
               src = pkgs.zsh-powerlevel10k;
               file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             }
-            {
-              name = "powerlevel10k-config";
-              src = /home/tim/.dotfiles/home;
-              file = ".p10k.zsh";
-            }
+           # {
+           #   name = "powerlevel10k-config";
+           #   src = /home/tim/.dotfiles/home;
+           #   file = ".p10k.zsh";
+           # }
             {
               name = "zsh-nix-shell";
               file = "nix-shell.plugin.zsh";

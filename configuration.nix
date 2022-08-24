@@ -2,17 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
-let 
-  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-in
 {
   imports =
     [
-      ./hardware-configuration.nix
       ./home-manager.nix
     ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -113,7 +111,7 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     bat
     bitwarden
     discord
@@ -135,12 +133,13 @@ in
     ripgrep
     spotify
     texlive.combined.scheme-full 
-    unstable.hyper
     vscode.fhs
     wget
     xclip
     zathura
-  ];
+  ]) ++ (with unstable; [
+    hyper
+  ]);
 
   programs.steam.enable = true;
   hardware.opengl.driSupport32Bit = true;
