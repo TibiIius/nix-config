@@ -18,7 +18,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  {
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -28,7 +29,7 @@
           ./hosts/nixos-laptop/hardware-configuration.nix
         ];
         specialArgs = {
-          unstable = import nixpkgs-unstable { system = "x86_64-linux"; };
+          unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
         };
       };
     };
