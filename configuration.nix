@@ -61,6 +61,8 @@
     desktopManager.gnome.enable = true;
   };
 
+  security.pam.services.gdm.enableGnomeKeyring = true;
+
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -117,6 +119,7 @@
     discord
     du-dust
     element-desktop
+    exa
     fd
     firefox
     fzf
@@ -133,12 +136,12 @@
     ripgrep
     spotify
     texlive.combined.scheme-full 
-    vscode.fhs
     wget
     xclip
     zathura
   ]) ++ (with unstable; [
     hyper
+    vscode.fhs
   ]);
 
   programs.steam.enable = true;
