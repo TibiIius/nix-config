@@ -49,14 +49,7 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "tim";
-      };
-      gdm = {
-        enable = true;
-        autoLogin.delay = 5;
-      };
+      gdm.enable = true;
     };
     desktopManager.gnome.enable = true;
   };
@@ -118,6 +111,7 @@
     discord
     du-dust
     element-desktop
+    eww-wayland
     exa
     fd
     firefox
@@ -136,6 +130,7 @@
     spotify
     texlive.combined.scheme-full 
     wget
+    wofi
     xclip
     zathura
   ]) ++ (with unstable; [
