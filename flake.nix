@@ -2,11 +2,10 @@
   description = "Flake file for NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,11 +18,11 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }:
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }:
   {
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
@@ -35,9 +34,6 @@
           ./configuration.nix 
           ./hosts/nixos-laptop/hardware-configuration.nix
         ];
-        specialArgs = {
-          unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
-        };
       };
     };
   };

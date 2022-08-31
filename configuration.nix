@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -105,7 +105,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
     bat
     bitwarden
     discord
@@ -118,6 +118,8 @@
     fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
+    xh
+    hyper
     libsForQt5.qtstyleplugin-kvantum
     lutris
     nautilus-open-any-terminal 
@@ -125,18 +127,18 @@
     nextcloud-client
     nodejs
     obsidian
+    procs
     protonup
     ripgrep
     spotify
     texlive.combined.scheme-full 
+    vscode.fhs
     wget
     wofi
     xclip
     zathura
-  ]) ++ (with unstable; [
-    hyper
-    vscode.fhs
-  ]);
+    zoxide
+  ];
 
   programs.steam.enable = true;
   hardware.opengl.driSupport32Bit = true;
