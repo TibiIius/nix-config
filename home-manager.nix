@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  home-manager = {
-    useUserPackages = true;
+  home-manager = { useUserPackages = true;
     useGlobalPkgs = true;
 
     users.tim = { pkgs, ... }: {
@@ -32,11 +31,11 @@
               src = pkgs.zsh-powerlevel10k;
               file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             }
-           {
-             name = "powerlevel10k-config";
-             src =  /home/tim/.dotfiles/home;
-             file = ".p10k.zsh";
-           }
+            {
+              name = "powerlevel10k-config";
+              src =  /home/tim/.dotfiles/home;
+              file = ".p10k.zsh";
+            }
             {
               name = "zsh-nix-shell";
               file = "nix-shell.plugin.zsh";
@@ -45,6 +44,16 @@
                 repo = "zsh-nix-shell";
                 rev = "v0.5.0";
                 sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+              };
+            }
+            {
+              name = "zsh-aliases-exa";
+              file = "zsh-aliases-exa.plugin.zsh";
+              src = pkgs.fetchFromGitHub {
+                owner = "TibiIius";
+                repo = "zsh-aliases-exa";
+                rev = "master";
+                sha256 = "1gp1w6420m1rlnxgg1kk8wms939d1m2bcxga59gxn29arks6qp01";
               };
             }
           ];
