@@ -142,6 +142,7 @@
     spotify
     texlive.combined.scheme-full 
     vscode.fhs
+    waybar
     wget
     wofi
     xclip
