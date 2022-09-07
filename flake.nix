@@ -23,18 +23,18 @@
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, ... }:
-  {
-    nixosConfigurations = {
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          hyprland.nixosModules.default 
-          { programs.hyprland.enable = true; }
-          ./configuration.nix 
-          ./hosts/nixos-laptop/hardware-configuration.nix
-        ];
+    {
+      nixosConfigurations = {
+        nixos-laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            hyprland.nixosModules.default
+            { programs.hyprland.enable = true; }
+            ./configuration.nix
+            ./hosts/nixos-laptop/hardware-configuration.nix
+          ];
+        };
       };
     };
-  };
 }

@@ -29,7 +29,7 @@
   networking.hostName = "nixos-laptop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -132,7 +132,7 @@
     hyper
     libsForQt5.qtstyleplugin-kvantum
     lutris
-    nautilus-open-any-terminal 
+    nautilus-open-any-terminal
     neovim
     nextcloud-client
     nodejs
@@ -141,7 +141,7 @@
     protonup
     ripgrep
     spotify
-    texlive.combined.scheme-full 
+    texlive.combined.scheme-full
     vscode.fhs
     waybar
     wget

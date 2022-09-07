@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  home-manager = { useUserPackages = true;
+  home-manager = {
+    useUserPackages = true;
     useGlobalPkgs = true;
 
     users.tim = { pkgs, ... }: {
@@ -33,7 +34,7 @@
             }
             {
               name = "powerlevel10k-config";
-              src =  /home/tim/.dotfiles/home;
+              src = /home/tim/.dotfiles/home;
               file = ".p10k.zsh";
             }
             {
