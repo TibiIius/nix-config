@@ -63,7 +63,15 @@
     desktopManager.gnome.enable = true;
   };
 
-  security.pam.services.gdm.enableGnomeKeyring = true;
+  security.pam = {
+    services = {
+      login.fprintAuth = true;
+      gdm = {
+        enableGnomeKeyring = true;
+        fprintAuth = true;
+      };
+    };
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -169,6 +177,10 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  services = {
+    fprintd.enable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
