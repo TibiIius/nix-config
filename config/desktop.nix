@@ -7,7 +7,7 @@
 {
   imports =
     [
-      ./home-manager.nix
+      ./../home/tim
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

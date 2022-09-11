@@ -23,18 +23,21 @@
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, ... }:
+  let
+    mkNixSystem = hostname: system: additionalModules: nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = ([
+        ( ./. + "/hosts/${hostname}")
+      ] ++ additionalModules);
+    };
+  in
     {
       nixosConfigurations = {
-        nixos-laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            hyprland.nixosModules.default
-            { programs.hyprland.enable = true; }
-            ./configuration.nix
-            ./hosts/nixos-laptop/hardware-configuration.nix
-          ];
-        };
+        nixos-laptop = mkNixSystem "nixos-laptop" "x86_64-linux" [
+          home-manager.nixosModules.home-manager
+          hyprland.nixosModules.default
+          { programs.hyprland.enable = true; }
+        ];
       };
     };
 }
