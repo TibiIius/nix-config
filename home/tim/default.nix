@@ -106,7 +106,7 @@
           enableAutosuggestions = true;
           enableCompletion = true;
           enableSyntaxHighlighting = true;
-          initExtra = "source ~/.dotfiles/home/.zshrc";
+          initExtra = "zsh ~/.dotfiles/home/.zshrc";
           oh-my-zsh = {
             enable = true;
           };
