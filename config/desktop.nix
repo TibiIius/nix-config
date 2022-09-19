@@ -26,10 +26,33 @@
   };
   boot.initrd.systemd.enable = true; # Needed for Plymouth
 
-  networking.hostName = "nixos-laptop"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "nixos-laptop";
+    networkmanager.enable = true;
+    firewall = {
+      allowedUDPPorts = [ 51280 ];
+    };
+    wg-quick = {
+      interfaces = {
+        wg0 = {
+          address = [ "192.168.71.2/32" "fdc9:3c6b:21c7:e6bd::2/128" ];
+          listenPort = 51820;
+          privateKeyFile = "/home/tim/.local/share/wireguard/private.key";
+          # postUp = [ "wg set wg0 peer fvvdgRvEafUBUFP5ZgQEtkGW6ybl3wJ1UgSBb393r1s= persistent-keepalive 25" ];
+          dns = [ "192.168.2.192" ];
+
+          peers = [
+            {
+              publicKey = "1Fx899Qb9lR/cLH4eMd4BMOOjmkdROTBNNbxysq6e1E=";
+              allowedIPs = [ "0.0.0.0/0" "::/0" ];
+              endpoint = "wg.timfb.dev:51820";
+            }
+          ];
+        };
+      };
+
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -152,6 +175,7 @@
     texlive.combined.scheme-full
     waybar
     wget
+    wireguard-tools
     wofi
     xclip
     xh
@@ -185,12 +209,6 @@
   services = {
     fprintd.enable = true;
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
