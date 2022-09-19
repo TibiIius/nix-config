@@ -158,7 +158,11 @@
     zoxide
   ];
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
+    gamemode.enable = true;
+  };
+
   hardware.opengl.driSupport32Bit = true;
 
   # Enable sensors
