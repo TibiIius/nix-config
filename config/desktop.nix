@@ -136,7 +136,6 @@
     fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
-    xh
     hyper
     libsForQt5.qtstyleplugin-kvantum
     lutris
@@ -145,6 +144,7 @@
     nextcloud-client
     nodejs
     obsidian
+    onlyoffice-bin
     procs
     protonup
     ripgrep
@@ -154,6 +154,7 @@
     wget
     wofi
     xclip
+    xh
     zathura
     zoxide
   ];
