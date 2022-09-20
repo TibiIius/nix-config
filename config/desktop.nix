@@ -179,6 +179,7 @@
     wofi
     xclip
     xh
+    xournalpp
     zathura
     zoxide
   ];
