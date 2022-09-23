@@ -164,6 +164,7 @@
     lutris
     nautilus-open-any-terminal
     neovim
+    newm
     nextcloud-client
     nodejs
     obsidian

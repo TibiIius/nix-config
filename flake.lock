@@ -16,6 +16,51 @@
         "type": "github"
       }
     },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1656928814,
+        "narHash": "sha256-RIFfgBuKz6Hp89yRr7+NR5tzIAbn52h8vT6vXkYjZoM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7e2a3b3dfd9af950a856d66b0a7d01e3c18aa249",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1656928814,
+        "narHash": "sha256-RIFfgBuKz6Hp89yRr7+NR5tzIAbn52h8vT6vXkYjZoM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7e2a3b3dfd9af950a856d66b0a7d01e3c18aa249",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -37,24 +82,25 @@
         "type": "github"
       }
     },
-    "hyprland": {
+    "newmpkg": {
       "inputs": {
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "wlroots": "wlroots"
+        "pywmpkg": "pywmpkg"
       },
       "locked": {
-        "lastModified": 1661958169,
-        "narHash": "sha256-nXicce3x3QL2k9D6heDx0sO/8I6aIcKqA4DcDN7QHC4=",
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "rev": "dacaf72e02b8d1819135f6aef3911e8211e98630",
+        "lastModified": 1662581453,
+        "narHash": "sha256-pjo0vlk6IylyQOuU2u2wv642qZA2jhUGSb3YC+UMUkE=",
+        "owner": "jbuchermn",
+        "repo": "newm",
+        "rev": "4e4bd5472a9c33d5548017aefa71f1e7c00aea66",
         "type": "github"
       },
       "original": {
-        "owner": "hyprwm",
-        "repo": "Hyprland",
+        "owner": "jbuchermn",
+        "repo": "newm",
         "type": "github"
       }
     },
@@ -74,11 +120,34 @@
         "type": "github"
       }
     },
+    "pywmpkg": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "newmpkg",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1659183428,
+        "narHash": "sha256-bMZPmSpaYuXAZB+jH/GevzJ5T7TBdCWavDBU1ieAKbw=",
+        "owner": "jbuchermn",
+        "repo": "pywm",
+        "rev": "12d3ded1865d2b7f7b23111a6ceb753d2741df2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jbuchermn",
+        "repo": "pywm",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "hyprland": "hyprland",
+        "newmpkg": "newmpkg",
         "nixpkgs": "nixpkgs"
       }
     },
@@ -95,24 +164,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
-      }
-    },
-    "wlroots": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.freedesktop.org",
-        "lastModified": 1660930713,
-        "narHash": "sha256-bY7q1NqG/sjCUAWPn/Ne9NCigLlPlH5Lk1WCMqv3rTU=",
-        "owner": "wlroots",
-        "repo": "wlroots",
-        "rev": "7c575922c05e4d5fd9a403c2aa631a54c7531d44",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.freedesktop.org",
-        "owner": "wlroots",
-        "repo": "wlroots",
-        "type": "gitlab"
       }
     }
   },

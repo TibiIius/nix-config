@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     # Used in shell.nix so people can keep using
     # `nix-shell` instead of `nix develop`
     flake-compat = {
@@ -16,28 +18,40 @@
       flake = false;
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    newmpkg = {
+      url = "github:jbuchermn/newm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }:
-  let
-    mkNixSystem = hostname: system: additionalModules: nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = ([
-        ( ./. + "/hosts/${hostname}")
-      ] ++ additionalModules);
-    };
-  in
-    {
-      nixosConfigurations = {
-        nixos-laptop = mkNixSystem "nixos-laptop" "x86_64-linux" [
-          home-manager.nixosModules.home-manager
-          hyprland.nixosModules.default
-          { programs.hyprland.enable = true; }
-        ];
-      };
-    };
+  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            (self: super: {
+              newm = newmpkg.packages.${system}.newm;
+            })
+          ];
+        };
+
+        mkNixSystem = hostname: additionalModules: nixpkgs.lib.nixosSystem {
+          inherit pkgs system;
+          modules = ([
+            ({ config, pkgs, ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
+            (./. + "/hosts/${hostname}")
+          ] ++ additionalModules);
+        };
+      in
+      {
+        packages.nixosConfigurations = {
+          nixos-laptop = mkNixSystem "nixos-laptop" [
+            home-manager.nixosModules.home-manager
+          ];
+        };
+      }
+    );
 }
