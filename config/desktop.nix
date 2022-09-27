@@ -149,7 +149,7 @@
     barrier
     bat
     bitwarden
-    discord
+    (discord.override { nss = nss_latest; })
     du-dust
     element-desktop
     eww-wayland
