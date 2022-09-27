@@ -159,6 +159,7 @@
     fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
+    hydrapaper
     hyper
     libsForQt5.qtstyleplugin-kvantum
     lutris

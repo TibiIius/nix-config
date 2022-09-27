@@ -22,9 +22,15 @@
       url = "github:jbuchermn/newm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Custom overlays
+    tibiiius-pkgs = {
+      url = "github:TibiIius/nix-overlays";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, ... }:
+  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -32,6 +38,7 @@
           inherit system;
           config.allowUnfree = true;
           overlays = [
+            tibiiius-pkgs.overlays.default
             (self: super: {
               newm = newmpkg.packages.${system}.newm;
             })
