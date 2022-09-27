@@ -171,9 +171,11 @@
     onlyoffice-bin
     procs
     protonup
+    ranger
     ripgrep
     spotify
     texlive.combined.scheme-full
+    tmux
     waybar
     wget
     wireguard-tools
