@@ -41,6 +41,7 @@
             tibiiius-pkgs.overlays.default
             (self: super: {
               newm = newmpkg.packages.${system}.newm;
+              libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
             })
           ];
         };
