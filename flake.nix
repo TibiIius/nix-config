@@ -53,12 +53,19 @@
             (./. + "/hosts/${hostname}")
           ] ++ additionalModules);
         };
+        mkNixHome = username: additionalModules: home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ (./. + "/home/${username}") ];
+        };
       in
       {
-        packages.nixosConfigurations = {
-          nixos-laptop = mkNixSystem "nixos-laptop" [
-            home-manager.nixosModules.home-manager
-          ];
+        packages = {
+          nixosConfigurations = {
+            nixos-laptop = mkNixSystem "nixos-laptop" [ ];
+          };
+          homeConfigurations = {
+            tim = mkNixHome "tim" [ ];
+          };
         };
       }
     );

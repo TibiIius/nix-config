@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./../home/tim
-    ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the GRUB 2 boot loader.
@@ -159,6 +154,7 @@
     fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
+    home-manager
     hydrapaper
     hyper
     libsForQt5.qtstyleplugin-kvantum
