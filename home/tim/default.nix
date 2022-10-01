@@ -2,6 +2,7 @@
 
 {
   fonts.fontconfig.enable = true;
+  targets.genericLinux.enable = true;
 
   home = {
     username = "tim";
@@ -19,6 +20,9 @@
       })
     ];
   };
+
+  # Doesn't set itself on my non-NixOS system
+  xdg.systemDirs.data = [ "~/.nix-profile/share" ];
 
   programs = {
     direnv = {
