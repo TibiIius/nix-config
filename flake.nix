@@ -23,12 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # VSCode extensions
-    nix-vscode-marketplace = {
-      url = "github:AmeerTaweel/nix-vscode-marketplace";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Custom overlays
     tibiiius-pkgs = {
       url = "github:TibiIius/nix-overlays";
@@ -36,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, nix-vscode-marketplace, ... }:
+  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -44,7 +38,6 @@
           inherit system;
           config.allowUnfree = true;
           overlays = [
-            nix-vscode-marketplace.overlays.vscode-marketplace
             tibiiius-pkgs.overlays.default
             (self: super: {
               newm = newmpkg.packages.${system}.newm;
