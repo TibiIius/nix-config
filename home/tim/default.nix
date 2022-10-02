@@ -28,6 +28,10 @@
         fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" ];
       })
     ];
+    sessionVariables = {
+      XCURSOR_PATH = "$HOME/.local/share/icons:$XCURSOR_PATH";
+    };
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
   # Needed for non-NixOS
