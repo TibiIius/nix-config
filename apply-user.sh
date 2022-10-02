@@ -2,4 +2,4 @@
 
 USERNAME=${1:-$(whoami)}
 
-home-manager switch --flake .\#${USERNAME} --impure
+home-manager switch --flake .\#${USERNAME}
