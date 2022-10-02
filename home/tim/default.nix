@@ -16,10 +16,16 @@
 
     # Fonts
     packages = with pkgs; [
+      bandwhich
       bat
+      bottom
+      procs
+      exa
+      tokei
       ripgrep
       du-dust
       fd
+      zoxide
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -53,6 +59,7 @@
       userName = "TimFB";
       userEmail = "56914732+TibiIius@users.noreply.github.com";
       lfs.enable = true;
+      delta.enable = true;
     };
   };
 }

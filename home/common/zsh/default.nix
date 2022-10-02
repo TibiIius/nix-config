@@ -51,6 +51,9 @@
           fi
         fi
       }
+
+      # Zoxide
+      eval "$(zoxide init zsh)"
     '';
     oh-my-zsh = {
       enable = true;
