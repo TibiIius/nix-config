@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ../common/nvim.nix
+  ];
+
+
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;
 
@@ -160,17 +165,6 @@
       userName = "TimFB";
       userEmail = "56914732+TibiIius@users.noreply.github.com";
       lfs.enable = true;
-    };
-    neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      extraConfig = ''
-        if filereadable(expand('~/.dotfiles/config/nvim/init.vim'))
-          source $HOME/.dotfiles/config/nvim/init.vim
-        endif
-      '';
     };
   };
 }
