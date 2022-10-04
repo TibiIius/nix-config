@@ -154,6 +154,7 @@
     fzf
     gnome.dconf-editor
     gnome.gnome-tweaks
+    gnome.nautilus-python
     home-manager
     hydrapaper
     hyper
