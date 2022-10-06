@@ -31,7 +31,7 @@
       noto-fonts-emoji
       inter
       (nerdfonts.override {
-        fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" ];
+        fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" "FantasqueSansMono" ];
       })
     ];
     sessionVariables = {
