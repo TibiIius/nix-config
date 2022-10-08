@@ -8,10 +8,19 @@
     enableSyntaxHighlighting = true;
     enableVteIntegration = true;
     shellAliases = {
+      # Replacements
       cat = "bat";
       grep = "rg";
       find = "fd";
       du = "dust";
+      # Git aliases
+      gitc = "git commit";
+      gitca = "git commit --amend --no-edit";
+      gitcf = "git commit --fixup HEAD";
+      gitg = "git fetch --all && git pull";
+      gitgp = "git fetch --all --prune && git pull";
+      gitp = "git push";
+      # Misc
       updateArch = "flatpak update && rustup update && yarn global upgrade && yay -Syyyu";
     };
     profileExtra = ''
