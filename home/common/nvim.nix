@@ -9,7 +9,11 @@
 
     plugins = with pkgs.vimPlugins; [
       camelcasemotion
-      coc-neco
+      coc-nvim
+      coc-snippets
+      coc-json
+      coc-vimtex
+      coc-pairs
       fzf-vim
       gruvbox
       markdown-preview-nvim
@@ -110,14 +114,6 @@
       
       " Some keybinds
       map <C-p> :FZF<enter>
-      
-      " Additional coc config
-      let g:coc_global_extensions = [
-        \ 'coc-snippets',
-        \ 'coc-pairs',
-        \ 'coc-json', 
-        \ 'coc-vimtex', 
-        \ ]
       
       " Use tab for trigger completion with characters ahead and navigate.
       " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
