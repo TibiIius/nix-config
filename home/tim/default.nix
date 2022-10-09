@@ -5,7 +5,7 @@
     ../common/nvim.nix
     ../common/vscode.nix
     ../common/zsh
-    ../common/alacritty
+    ../common/kitty
   ];
 
   fonts.fontconfig.enable = true;
