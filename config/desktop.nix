@@ -223,6 +223,12 @@
   services = {
     fprintd.enable = true;
     touchegg.enable = true;
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "00 20 * * * root btrfs balance start -dusage=50 -dlimit=2 -musage=50 -mlimit=4 / >/dev/null 2>&1"
+      ];
+    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
