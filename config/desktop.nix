@@ -155,6 +155,7 @@
     barrier
     bat
     bitwarden
+    bottles
     (discord.override { nss = nss_latest; })
     du-dust
     element-desktop
