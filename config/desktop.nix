@@ -195,6 +195,7 @@
     xh
     xournalpp
     zathura
+    zotero
     zoxide
   ];
 
