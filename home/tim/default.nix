@@ -27,9 +27,6 @@
       du-dust
       fd
       zoxide
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
       inter
       (nerdfonts.override {
         fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" "FantasqueSansMono" ];

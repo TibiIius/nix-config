@@ -178,6 +178,9 @@
     newm
     nextcloud-client
     nodejs
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
     obsidian
     onlyoffice-bin
     procs
