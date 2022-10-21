@@ -23,7 +23,7 @@
       # Misc
       updateArch = "flatpak update && rustup update && yarn global upgrade && yay -Syyyu";
     };
-    profileExtra = ''
+    envExtra = ''
       # Some env variables
       export EDITOR=nvim
       export VISUAL=nvim
