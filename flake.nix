@@ -65,6 +65,7 @@
           };
           homeConfigurations = {
             tim = mkNixHome "tim" [ ];
+            guest = mkNixHome "guest" [ ];
           };
         };
       }
