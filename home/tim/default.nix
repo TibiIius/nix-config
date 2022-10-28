@@ -23,9 +23,11 @@
       procs
       exa
       tokei
+      ranger
       ripgrep
       du-dust
       fd
+      xh
       zoxide
       inter
       (nerdfonts.override {

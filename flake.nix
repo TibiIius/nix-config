@@ -46,14 +46,14 @@
           ];
         };
 
-        mkNixSystem = hostname: additionalModules: nixpkgs.lib.nixosSystem {
+        mkNixSystem = hostname: nixpkgs.lib.nixosSystem {
           inherit pkgs system;
-          modules = ([
+          modules = [
             ({ config, pkgs, ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
             (./. + "/hosts/${hostname}")
-          ] ++ additionalModules);
+          ];
         };
-        mkNixHome = username: additionalModules: home-manager.lib.homeManagerConfiguration {
+        mkNixHome = username: home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ (./. + "/home/${username}") ];
         };
@@ -61,11 +61,11 @@
       {
         packages = {
           nixosConfigurations = {
-            nixos-laptop = mkNixSystem "nixos-laptop" [ ];
+            nixos-laptop = mkNixSystem "nixos-laptop";
           };
           homeConfigurations = {
-            tim = mkNixHome "tim" [ ];
-            guest = mkNixHome "guest" [ ];
+            tim = mkNixHome "tim";
+            guest = mkNixHome "guest";
           };
         };
       }
