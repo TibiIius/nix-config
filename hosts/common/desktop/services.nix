@@ -6,12 +6,12 @@
     xserver = {
       enable = true;
       displayManager = {
-        gdm.enable = false;
-        sddm.enable = true;
+        gdm.enable = true;
+        sddm.enable = false;
       };
       desktopManager = {
-        gnome.enable = false;
-        plasma5.enable = true;
+        gnome.enable = true;
+        plasma5.enable = false;
       };
     };
   };
