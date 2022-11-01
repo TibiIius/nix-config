@@ -27,6 +27,9 @@ args@{ config, pkgs, ... }:
     touchegg.enable = true;
   };
 
+  # KVM
+  boot.kernelModules = [ "kvm-amd" ];
+
   # Monitor tilt
   hardware.sensor.iio.enable = true;
 

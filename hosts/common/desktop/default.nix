@@ -3,6 +3,7 @@ args@{ config, pkgs, wgIps, ... }:
 {
   imports = [
     ./environment.nix
+    ./kvm.nix
     ./pipewire.nix
     ./security.nix
     ./services.nix
@@ -20,8 +21,9 @@ args@{ config, pkgs, wgIps, ... }:
     gamemode.enable = true;
   };
 
-  # QEMU
-  virtualisation.libvirtd.enable = true;
-
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    driSupport = true;
+  };
 }
