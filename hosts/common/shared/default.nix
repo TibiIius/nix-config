@@ -15,4 +15,7 @@
     keyMap = "us";
     useXkbConfig = false;
   };
+
+  # Docker
+  virtualisation.docker.enable = true;
 }
