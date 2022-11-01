@@ -14,7 +14,7 @@
       initialPassword = "123";
       group = "tim";
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
     };
     users.guest = {
       isNormalUser = true;

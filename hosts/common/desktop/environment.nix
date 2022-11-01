@@ -32,6 +32,7 @@
     spotify
     texlive.combined.scheme-full
     tmux
+    virt-manager
     wget
     wireguard-tools
     xclip

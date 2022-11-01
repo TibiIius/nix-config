@@ -20,5 +20,8 @@ args@{ config, pkgs, wgIps, ... }:
     gamemode.enable = true;
   };
 
+  # QEMU
+  virtualisation.libvirtd.enable = true;
+
   hardware.opengl.driSupport32Bit = true;
 }
