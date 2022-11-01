@@ -6,6 +6,7 @@
     ./btrfs.nix
     ./i18n.nix
     ./nix.nix
+    ./virtualisation.nix
   ];
 
   time.timeZone = "Europe/Berlin";
@@ -16,6 +17,4 @@
     useXkbConfig = false;
   };
 
-  # Docker
-  virtualisation.docker.enable = true;
 }

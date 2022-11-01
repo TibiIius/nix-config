@@ -3,7 +3,6 @@ args@{ config, pkgs, wgIps, ... }:
 {
   imports = [
     ./environment.nix
-    ./kvm.nix
     ./pipewire.nix
     ./security.nix
     ./services.nix

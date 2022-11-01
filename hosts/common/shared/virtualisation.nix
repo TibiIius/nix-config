@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.swtpm.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
