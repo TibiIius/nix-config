@@ -436,6 +436,12 @@
         version = "3.15.6";
         sha256 = "0c6dwy6z3980hbf9njf8b8bvd602q2d6bflkrwqd93n9c0fa4n1d";
       }
+      {
+        name = "copilot";
+        publisher = "GitHub";
+        version = "1.56.7152";
+        sha256 = "sha256-9WEvTcVY/yMF00GJVj4h57aWhfBYTSatbw10DjjAaAM=";
+      }
     ];
   };
 }
