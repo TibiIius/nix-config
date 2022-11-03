@@ -422,7 +422,7 @@
         name = "volar";
         publisher = "Vue";
         version = "1.0.9";
-        sha256 = "14yf69fjagw1bjh6q846lsil1frhsyhc6s0y1fgkji7xhq8fmnsf";
+        sha256 = "sha256-Zp5zSSqhIt8NxrUX8bVSuiUvbwhht2NhQF76GECZ8KI=";
       }
       {
         name = "markdown-all-in-one";
