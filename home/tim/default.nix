@@ -60,6 +60,10 @@
       userEmail = "56914732+TibiIius@users.noreply.github.com";
       lfs.enable = true;
       delta.enable = true;
+      signing = {
+        signByDefault = true;
+        key = "711B5B3EEB2661CEF4CAA41F4B3B63F9A1CB361C";
+      };
     };
   };
 }
