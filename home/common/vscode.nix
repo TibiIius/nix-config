@@ -3,7 +3,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    extensions = with pkgs.vscode-extensions; [ matklad.rust-analyzer ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "better-comments";
         publisher = "aaron-bond";
@@ -327,12 +327,6 @@
         publisher = "RobbOwen";
         version = "0.1.14";
         sha256 = "0d9c18ci1pgj1qxm8xhdw6rp5gn135l1rvmd591gr3bsrmcf5wj7";
-      }
-      {
-        name = "rust-analyzer";
-        publisher = "rust-lang";
-        version = "0.4.1263";
-        sha256 = "sha256-eLMzPu06n7g3MDCXl8ib9OjJnktmHs6E1goSFRvlt7g=";
       }
       {
         name = "outrun";
