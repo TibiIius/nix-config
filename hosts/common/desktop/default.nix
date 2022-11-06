@@ -4,6 +4,7 @@ args@{ config, pkgs, wgIps, ... }:
   imports = [
     ./environment.nix
     ./pipewire.nix
+    ./programs.nix
     ./security.nix
     ./services.nix
     ./users.nix
@@ -15,14 +16,6 @@ args@{ config, pkgs, wgIps, ... }:
 
   nixpkgs.config.allowUnfree = true;
 
-  programs = {
-    steam.enable = true;
-    gamemode.enable = true;
-    wireshark = {
-      enable = true;
-      package = pkgs.wireshark-qt;
-    };
-  };
 
   hardware.opengl = {
     enable = true;

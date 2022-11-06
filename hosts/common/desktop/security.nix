@@ -3,7 +3,10 @@
   security = {
     pam = {
       services = {
-        gdm.enableGnomeKeyring = true;
+        gdm = {
+          enableGnomeKeyring = true;
+          gnupg.enable = true;
+        };
       };
     };
   };
