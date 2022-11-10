@@ -31,7 +31,6 @@
       export CM_LAUNCHER=rofi
       export QT_QPA_PLATFORMTHEME=qt5ct
       export KRITA_NO_STYLE_OVERRIDE=1
-      source "$HOME/.cargo/env"
 
       # Fuck Microsoft
       export DOTNET_CLI_TELEMETRY_OPTOUT=1
