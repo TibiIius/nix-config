@@ -9,6 +9,7 @@
       });
       installPhase = builtins.replaceStrings [ "${oldAttrs.desktopItem}" ] [ "${desktopItem}" ] oldAttrs.installPhase;
     })).override { nss = nss_latest; })
+    distrobox
     docker-compose
     element-desktop
     firefox
