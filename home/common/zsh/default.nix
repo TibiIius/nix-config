@@ -21,7 +21,7 @@
       gitgp = "git fetch --all --prune && git pull";
       gitp = "git push";
       # Misc
-      updateArch = "flatpak update && rustup update && yarn global upgrade && yay -Syyyu";
+      updateArch = "flatpak update && yay -Syyyu";
     };
     envExtra = ''
       # Some env variables
