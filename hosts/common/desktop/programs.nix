@@ -3,6 +3,7 @@
   programs = {
     steam.enable = true;
     gamemode.enable = true;
+    evolution.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark-qt;
