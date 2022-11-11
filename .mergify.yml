@@ -1,9 +1,8 @@
 pull_request_rules:
   - name: Automatic merge
     conditions:
-        - or:
-            - author=github-actions[bot]
-            - author=TibiIius
+        - author=github-actions[bot]
+        - title=Update flake.lock
     actions:
       merge:
         method: merge
