@@ -73,6 +73,7 @@
               guest = mkNixHome "guest";
             };
           };
+          devShells.default = import ./shell.nix { inherit pkgs; };
         }
       );
 }
