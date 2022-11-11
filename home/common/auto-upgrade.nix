@@ -12,6 +12,7 @@
         };
         Timer = {
           OnCalendar = "20:00";
+          Persistent = true;
         };
         Install = {
           WantedBy = [ "timers.target" ];
