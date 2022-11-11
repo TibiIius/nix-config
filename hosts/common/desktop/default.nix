@@ -7,10 +7,11 @@ args@{ config, pkgs, wgIps, ... }:
     ./programs.nix
     ./security.nix
     ./services.nix
+    ./system.nix
     ./users.nix
     (import ./wireguard.nix
       (args
-        // { wgIps = [ "192.168.71.2/32" "fdc9:3c6b:21c7:e6bd::2/128" ]; })
+        // { wgIps = wgIps; })
     )
   ];
 

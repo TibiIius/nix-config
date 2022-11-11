@@ -5,6 +5,7 @@
     ./boot.nix
     ./btrfs.nix
     ./i18n.nix
+    ./system.nix
     ./nix.nix
     ./virtualisation.nix
   ];
