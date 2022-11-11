@@ -1,11 +1,16 @@
-{ config, pkgs, lib, ... }:
+args@{ config, pkgs, lib, ... }:
 
 {
   imports = [
+    (import ../common/auto-upgrade.nix
+      (args
+        // { username = "tim"; }
+      )
+    )
     ../common/nvim.nix
     ../common/vscode.nix
-    ../common/zsh
     ../common/kitty
+    ../common/zsh
   ];
 
   fonts.fontconfig.enable = true;
