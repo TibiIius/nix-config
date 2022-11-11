@@ -4,7 +4,6 @@
     autoUpgrade = {
       enable = true;
       flake = "github:TibiIius/nix-config";
-      dates = "05:00";
     };
   };
 }
