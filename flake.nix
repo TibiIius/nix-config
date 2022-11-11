@@ -31,43 +31,48 @@
   };
 
   outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          overlays = [
-            tibiiius-pkgs.overlays.default
-            (self: super: {
-              newm = newmpkg.packages.${system}.newm;
-              # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
-            })
-          ];
-        };
+    let
+      inherit (flake-utils.lib) eachSystem system;
+    in
+    eachSystem
+      [ system.x86_64-linux ]
+      (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              tibiiius-pkgs.overlays.default
+              (self: super: {
+                newm = newmpkg.packages.${system}.newm;
+                # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
+              })
+            ];
+          };
 
-        mkNixSystem = hostname: nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          modules = [
-            ({ config, pkgs, ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
-            (./. + "/hosts/${hostname}")
-          ];
-        };
-        mkNixHome = username: home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ (./. + "/home/${username}") ];
-        };
-      in
-      {
-        packages = {
-          nixosConfigurations = {
-            nixos-laptop = mkNixSystem "nixos-laptop";
+          mkNixSystem = hostname: nixpkgs.lib.nixosSystem {
+            inherit pkgs system;
+            modules = [
+              ({ config, pkgs, ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
+              (./. + "/hosts/${hostname}")
+            ];
           };
-          homeConfigurations = {
-            tim = mkNixHome "tim";
-            guest = mkNixHome "guest";
+          mkNixHome = username: home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ (./. + "/home/${username}") ];
           };
-        };
-      }
-    );
+        in
+        {
+          packages = {
+            nixosConfigurations = {
+              nixos-laptop = mkNixSystem "nixos-laptop";
+            };
+            homeConfigurations = {
+              tim = mkNixHome "tim";
+              guest = mkNixHome "guest";
+            };
+          };
+        }
+      );
 }
