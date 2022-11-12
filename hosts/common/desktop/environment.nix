@@ -4,6 +4,7 @@
     systemPackages = with pkgs; [
       barrier
       bitwarden
+      deja-dup
       ((discord.overrideAttrs (oldAttrs: rec {
         desktopItem = oldAttrs.desktopItem.override (d: {
           exec = "${d.exec} --ignore-gpu-blocklist --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy";
