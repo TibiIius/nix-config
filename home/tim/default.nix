@@ -39,9 +39,9 @@ args@{ config, pkgs, lib, ... }:
         fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" "FantasqueSansMono" ];
       })
     ];
-    sessionVariables = {
-      XCURSOR_PATH = "$HOME/.local/share/icons:$XCURSOR_PATH";
-    };
+    sessionVariablesExtra = ''
+      export XCURSOR_PATH="$HOME/.local/share/icons:$XCURSOR_PATH"
+    '';
     sessionPath = [ "$HOME/.local/bin" ];
   };
 
