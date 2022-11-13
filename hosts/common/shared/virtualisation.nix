@@ -7,6 +7,8 @@
       enable = true;
       qemu.swtpm.enable = true;
     };
+
+    anbox.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
