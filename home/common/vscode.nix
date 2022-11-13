@@ -211,7 +211,7 @@
         name = "volar";
         publisher = "Vue";
         version = "1.0.9";
-        sha256 = "sha256-Zp5zSSqhIt8NxrUX8bVSuiUvbwhht2NhQF76GECZ8KI=";
+        sha256 = "sha256-TtvqEIb9RDmfCx5ow6DXMLtAo6aGIGygXIE/JV0yzpM=";
       }
     ];
   };
