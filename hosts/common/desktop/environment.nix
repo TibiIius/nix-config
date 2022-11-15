@@ -15,6 +15,15 @@
       docker-compose
       element-desktop
       firefox
+      (glib.overrideAttrs (oldAttrs: {
+        # apply patch to fix high CPU usage with Gnome Keyring
+        patches = oldAttrs.patches ++ [
+          (fetchpatch {
+            url = "https://gitlab.gnome.org/GNOME/glib/-/commit/2a36bb4b7e46f9ac043561c61f9a790786a5440c.patch";
+            sha256 = "b77Hxt6WiLxIGqgAj9ZubzPWrWmorcUOEe/dp01BcXA=";
+          })
+        ];
+      }))
       gnome.dconf-editor
       gnome.gnome-tweaks
       gnome.nautilus-python
