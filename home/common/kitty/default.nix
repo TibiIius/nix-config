@@ -9,6 +9,6 @@
       owner = "kovidgoyal";
       repo = "kitty-themes";
       rev = "master";
-      sha256 = "sha256-YZxt59gZ7YaEyEXinT8eU3oLB0Cmd2+lu1GZvGZSAfY=";
+      sha256 = "sha256-xwyCcsRUZOsKYjxA2m7uurymrQiwBc8N91TbBcXcle8=";
     } + "/themes";
 }
