@@ -8,7 +8,7 @@
     {
       owner = "kovidgoyal";
       repo = "kitty-themes";
-      rev = "master";
-      sha256 = "sha256-xwyCcsRUZOsKYjxA2m7uurymrQiwBc8N91TbBcXcle8=";
+      rev = "b1abdd54ba655ef34f75a568d78625981bf1722c";
+      sha256 = "sha256-RcDmZ1fbNX18+X3xCqqdRbD+XYPsgNte1IXUNt6CxIA=";
     } + "/themes";
 }
