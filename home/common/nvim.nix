@@ -17,7 +17,7 @@
       fzf-vim
       gruvbox
       markdown-preview-nvim
-      material-nvim
+      material-vim
       nerdtree
       nord-vim
       ultisnips
@@ -102,7 +102,7 @@
             \}
       
       " Airline config
-      let g:airline_theme='atomic'
+      let g:airline_theme='material'
       let g:airline#extensions#branch#enabled = 1
       let g:airline_powerline_fonts = 1
       let g:airline#extensions#nerdtree_status = 1
