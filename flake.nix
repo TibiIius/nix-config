@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-jtojnar.url = "github:jtojnar/nixpkgs/webkitgtk-sandbox-fix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +32,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
+  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, nixpkgs-jtojnar, ... }:
     let
       inherit (flake-utils.lib) eachSystem system;
     in
@@ -47,6 +49,7 @@
               (self: super: {
                 newm = newmpkg.packages.${system}.newm;
                 # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
+                webkitgtk = nixpkgs-jtojnar.legacyPackages.${system}.webkitgtk;
               })
             ];
           };
