@@ -120,18 +120,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-staging-next": {
+    "nixpkgs-jtojnar": {
       "locked": {
-        "lastModified": 1669852946,
-        "narHash": "sha256-C54nrIVFBAlOmCUNdLMPZSNWVDBBHQTPdTFcFVyVcUg=",
-        "owner": "NixOS",
+        "lastModified": 1668451630,
+        "narHash": "sha256-WCoerFmY9uXTqNqZ7s9sfX69WyhtPwBAhdJLQO3LSts=",
+        "owner": "jtojnar",
         "repo": "nixpkgs",
-        "rev": "818d9a61a30374a643b33546b27e3cdac13f02dc",
+        "rev": "f930ba6aba43853d1f1733a9718585c6c80d890d",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "staging-next",
+        "owner": "jtojnar",
+        "ref": "webkitgtk-sandbox-fix",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -168,7 +168,7 @@
         "home-manager": "home-manager",
         "newmpkg": "newmpkg",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-staging-next": "nixpkgs-staging-next",
+        "nixpkgs-jtojnar": "nixpkgs-jtojnar",
         "tibiiius-pkgs": "tibiiius-pkgs"
       }
     },
