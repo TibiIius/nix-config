@@ -120,18 +120,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-jtojnar": {
+    "nixpkgs-release-22-11": {
       "locked": {
-        "lastModified": 1668451630,
-        "narHash": "sha256-WCoerFmY9uXTqNqZ7s9sfX69WyhtPwBAhdJLQO3LSts=",
-        "owner": "jtojnar",
+        "lastModified": 1670252560,
+        "narHash": "sha256-2RPet9AaoYBUDBk4DNApXFbCrEN9/X2Ajd7j1dbxTxc=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f930ba6aba43853d1f1733a9718585c6c80d890d",
+        "rev": "219b2fc946a59851cdfc59efdd11129e1cee2b44",
         "type": "github"
       },
       "original": {
-        "owner": "jtojnar",
-        "ref": "webkitgtk-sandbox-fix",
+        "owner": "NixOS",
+        "ref": "release-22.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -168,7 +168,7 @@
         "home-manager": "home-manager",
         "newmpkg": "newmpkg",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-jtojnar": "nixpkgs-jtojnar",
+        "nixpkgs-release-22-11": "nixpkgs-release-22-11",
         "tibiiius-pkgs": "tibiiius-pkgs"
       }
     },
