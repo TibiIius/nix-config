@@ -2,12 +2,10 @@
   description = "Flake file for NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nixpkgs-release-22-11.url = "github:NixOS/nixpkgs/release-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -32,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, nixpkgs-release-22-11, ... }:
+  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
     let
       inherit (flake-utils.lib) eachSystem system;
     in
@@ -49,7 +47,6 @@
               (self: super: {
                 newm = newmpkg.packages.${system}.newm;
                 # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
-                webkitgtk = nixpkgs-release-22-11.legacyPackages.${system}.webkitgtk;
               })
             ];
           };
