@@ -1,4 +1,4 @@
-args@{ config, pkgs, lib, ... }:
+args@{ config, pkgs, pkgs-unstable, lib, ... }:
 
 {
   imports = [
@@ -20,8 +20,7 @@ args@{ config, pkgs, lib, ... }:
     homeDirectory = "/home/tim";
     stateVersion = "22.05";
 
-    # Fonts
-    packages = with pkgs; [
+    packages = with pkgs-unstable; [
       bandwhich
       bat
       bottom
@@ -52,6 +51,7 @@ args@{ config, pkgs, lib, ... }:
 
   programs = {
     fzf = {
+      package = pkgs-unstable.fzf;
       enable = true;
       enableZshIntegration = true;
     };
@@ -60,6 +60,7 @@ args@{ config, pkgs, lib, ... }:
       nix-direnv.enable = true;
     };
     git = {
+      package = pkgs-unstable.git;
       enable = true;
       userName = "TimFB";
       userEmail = "56914732+TibiIius@users.noreply.github.com";

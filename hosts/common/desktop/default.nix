@@ -15,9 +15,6 @@ args@{ config, pkgs, wgIps, ... }:
     )
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
-
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;

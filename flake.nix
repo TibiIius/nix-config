@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +32,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, newmpkg, flake-utils, tibiiius-pkgs, ... }:
     let
       inherit (flake-utils.lib) eachSystem system;
     in
@@ -39,16 +41,24 @@
       (
         system:
         let
+          my-overlays = [
+            tibiiius-pkgs.overlays.default
+            (self: super: {
+              newm = newmpkg.packages.${system}.newm;
+              # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
+            })
+          ];
+
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            overlays = [
-              tibiiius-pkgs.overlays.default
-              (self: super: {
-                newm = newmpkg.packages.${system}.newm;
-                # libadwaita = tibiiius-pkgs.packages.${system}.libadwaita-without-adwaita;
-              })
-            ];
+            overlays = my-overlays;
+          };
+
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = my-overlays;
           };
 
           mkNixSystem = hostname: nixpkgs.lib.nixosSystem {
@@ -57,10 +67,16 @@
               ({ config, pkgs, ... }: { nix.registry.nixpkgs.flake = nixpkgs; })
               (./. + "/hosts/${hostname}")
             ];
+            specialArgs = {
+              inherit pkgs-unstable;
+            };
           };
           mkNixHome = username: home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ (./. + "/home/${username}") ];
+            extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
           };
         in
         {

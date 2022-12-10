@@ -1,13 +1,14 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs-unstable, lib, ... }:
 
 {
   programs.neovim = {
+    package = pkgs-unstable.neovim-unwrapped;
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs-unstable.vimPlugins; [
       coc-nvim
       coc-snippets
       coc-json

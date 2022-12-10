@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs-unstable, lib, ... }:
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
+    package = pkgs-unstable.vscode;
+    extensions = with pkgs-unstable.vscode-extensions; [
       matklad.rust-analyzer
       arcticicestudio.nord-visual-studio-code
       arrterian.nix-env-selector
@@ -50,7 +50,7 @@
       vscodevim.vim
       yzhang.markdown-all-in-one
       zhuangtongfa.material-theme
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    ] ++ pkgs-unstable.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "better-comments";
         publisher = "aaron-bond";
@@ -210,8 +210,8 @@
       {
         name = "volar";
         publisher = "Vue";
-        version = "1.0.9";
-        sha256 = "sha256-Zp5zSSqhIt8NxrUX8bVSuiUvbwhht2NhQF76GECZ8KI=";
+        version = "1.0.13";
+        sha256 = "sha256-PCWJ+d7sCPIpwKrnutLYAuhCVjJX8tL62l0+tQC2mTY=";
       }
     ];
   };
