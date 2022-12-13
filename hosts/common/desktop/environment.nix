@@ -29,6 +29,7 @@
       lutris
       neovim
       nextcloud-client
+      nodejs
       obsidian
       onlyoffice-bin
       protonup
