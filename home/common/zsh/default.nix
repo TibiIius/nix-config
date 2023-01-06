@@ -22,6 +22,7 @@
       gitp = "git push";
       # Misc
       updateArch = "flatpak update && yay -Syyyu";
+      temppls = "cd $(mktemp -d)";
     };
     envExtra = ''
       # Some env variables
