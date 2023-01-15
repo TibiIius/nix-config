@@ -181,11 +181,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673569185,
-        "narHash": "sha256-r86kSgs7BS0vFGArOXNoRwl3oYmwkj6FecndyPou8d8=",
+        "lastModified": 1673655506,
+        "narHash": "sha256-HVFfGJmJyPtBhMLizHkAxEs/34VZg1UFyZ8UvkkE7QQ=",
         "owner": "TibiIius",
         "repo": "nix-overlays",
-        "rev": "41618ad6d3a3a0b882b85603fe6b5adb257f2f25",
+        "rev": "f36231c7c43a81c6809ea23df05bc6a83f1144f6",
         "type": "github"
       },
       "original": {
