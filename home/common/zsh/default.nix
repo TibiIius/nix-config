@@ -23,6 +23,7 @@
       # Misc
       updateArch = "flatpak update && yay -Syyyu";
       temppls = "cd $(mktemp -d)";
+      rm = "rm -i";
     };
     envExtra = ''
       # Some env variables
