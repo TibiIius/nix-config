@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -23,3 +24,5 @@ jobs:
           pr-labels: |                  
             dependencies
             automated
+      - name: Test home configuration
+        run: nix build .#homeConfigurations.tim.activationPackage
