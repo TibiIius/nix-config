@@ -21,8 +21,6 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v14
         with:
           pr-title: "Update flake.lock"
-          pr-labels: |                  
+          pr-labels: |
             dependencies
             automated
-      - name: Test home configuration
-        run: nix build .#homeConfigurations.tim.activationPackage
