@@ -212,6 +212,12 @@
         version = "1.0.13";
         sha256 = "sha256-rWEV8Reevg2QcTynSiN/0ZeHLMo61qakqVhJTKAFpp4=";
       }
+      {
+        name = "inline-fold";
+        publisher = "moalamri";
+        version = "0.2.1";
+        sha256 = "sha256-xA6vFqmF0jCAMNy1VDxDzQycirIApNk2iXfnKbFVP4U=";
+      }
     ];
   };
 }
