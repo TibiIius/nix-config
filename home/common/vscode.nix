@@ -7,6 +7,7 @@
       matklad.rust-analyzer
       arcticicestudio.nord-visual-studio-code
       arrterian.nix-env-selector
+      asvetliakov.vscode-neovim
       christian-kohler.path-intellisense
       davidanson.vscode-markdownlint
       dbaeumer.vscode-eslint
@@ -47,7 +48,6 @@
       twxs.cmake
       usernamehw.errorlens
       vadimcn.vscode-lldb
-      vscodevim.vim
       yzhang.markdown-all-in-one
       zhuangtongfa.material-theme
     ] ++ pkgs-unstable.vscode-utils.extensionsFromVscodeMarketplace [
