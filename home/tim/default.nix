@@ -24,6 +24,7 @@ args@{ config, pkgs, pkgs-unstable, lib, ... }:
       bandwhich
       bat
       bottom
+      cachix
       procs
       exa
       tokei
