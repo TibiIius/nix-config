@@ -18,7 +18,10 @@ jobs:
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
-      - uses: cachix/cachix-action@v12
+      - name: Login and push artifacts to cachix
+        uses: cachix/cachix-action@v12
+        # This way, the build doesn't get uploaded on a PR, only on a push to master
+        if: github.event_name != 'pull_request'
         with:
           name: tibilius-cache
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
