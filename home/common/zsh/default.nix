@@ -37,6 +37,7 @@
       # Fuck Microsoft
       export DOTNET_CLI_TELEMETRY_OPTOUT=1
       export FrameworkPathOverride=/usr/lib/mono/4.5/
+      export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
       # Extend PATH variable
       export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
