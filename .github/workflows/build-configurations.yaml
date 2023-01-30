@@ -4,9 +4,11 @@ name: Build Nix configurations
 
 on:
   pull_request:
+    paths: ["hosts/*/**", "home/*/**", "flake.{nix,lock}"]
   push:
     branches:
       - master
+    paths: ["hosts/*/**", "home/*/**", "flake.{nix,lock}"]
 
 jobs:
   build:
