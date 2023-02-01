@@ -45,6 +45,9 @@
       # Add poetry related stuff
       [[ -d "$HOME/.poetry/bin" ]] && export PATH="$HOME/.poetry/bin:$PATH"
 
+      # Go
+      GOPATH=$HOME/.local/share/go
+
       # home-manager on non-NixOS
       [[ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]] && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
