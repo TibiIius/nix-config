@@ -27,6 +27,7 @@
       marp-team.marp-vscode
       ms-azuretools.vscode-docker
       ms-dotnettools.csharp
+      ms-python.python
       ms-python.vscode-pylance
       ms-toolsai.jupyter
       ms-toolsai.jupyter-keymap
