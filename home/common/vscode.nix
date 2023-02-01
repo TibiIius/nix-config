@@ -18,6 +18,7 @@
       formulahendry.auto-rename-tag
       github.copilot
       github.vscode-pull-request-github
+      golang.go
       grapecity.gc-excelviewer
       gruntfuggly.todo-tree
       ibm.output-colorizer
