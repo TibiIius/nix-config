@@ -5,11 +5,11 @@ name: Build Nix configurations
 on:
   workflow_dispatch:
   pull_request:
-    paths: ["hosts/*/**", "home/*/**", "flake.{nix,lock}"]
+    paths: ["hosts/*/**", "home/*/**", "flake.lock", "flake.nix"]
   push:
     branches:
       - master
-    paths: ["hosts/*/**", "home/*/**", "flake.{nix,lock}"]
+    paths: ["hosts/*/**", "home/*/**", "flake.lock", "flake.nix"]
 
 jobs:
   build:
