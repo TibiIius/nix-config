@@ -8,7 +8,6 @@ args@{ config, pkgs, pkgs-unstable, lib, ... }:
       )
     )
     ../common/nvim.nix
-    ../common/vscode.nix
     ../common/kitty
     ../common/zsh
   ];
