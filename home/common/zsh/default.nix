@@ -48,6 +48,9 @@
       # Go
       GOPATH=$HOME/.local/share/go
 
+      # Rustup
+      source "$HOME/.cargo/env"
+
       # home-manager on non-NixOS
       [[ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]] && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
