@@ -56,8 +56,8 @@ args@{ config, pkgs, pkgs-unstable, lib, ... }:
       enableZshIntegration = true;
     };
     direnv = {
-      enable = true;
-      nix-direnv.enable = true;
+      enable = false;
+      nix-direnv.enable = false;
     };
     git = {
       package = pkgs-unstable.git;
