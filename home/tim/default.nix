@@ -25,7 +25,7 @@ args@{ config, pkgs, pkgs-unstable, lib, ... }:
       bottom
       cachix
       procs
-      exa
+      eza
       tokei
       ranger
       ripgrep
