@@ -111,16 +111,6 @@
           sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
         };
       }
-      {
-        name = "zsh-aliases-exa";
-        file = "zsh-aliases-exa.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "TibiIius";
-          repo = "zsh-aliases-exa";
-          rev = "master";
-          sha256 = "1gp1w6420m1rlnxgg1kk8wms939d1m2bcxga59gxn29arks6qp01";
-        };
-      }
     ];
   };
 }
